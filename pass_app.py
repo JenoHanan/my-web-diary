@@ -52,7 +52,7 @@ def save_entry(content, title=None):
 def list_entries():
     if not os.path.exists(DIARY_DIR):
         return []
-    return sorted(os.listdir(DIARY_DIR), reverse=True) # Reversed to show newest first
+    return sorted(os.listdir(DIARY_DIR), reverse=True)
 
 def read_entry(filename):
     path = os.path.join(DIARY_DIR, filename)
@@ -93,7 +93,7 @@ def main():
                 save_password_hash(hash_password(new_password))
                 st.success("Password set successfully! Reloading...")
                 st.rerun()
-        return # Stop execution here until password is set
+        return 
 
     # 2. Login Screen
     if not st.session_state.authenticated:
@@ -106,7 +106,7 @@ def main():
                 st.rerun()
             else:
                 st.error("Incorrect password. Please try again.")
-        return # Stop execution here until logged in
+        return 
 
     # 3. Main Application (Authenticated)
     st.sidebar.title("Navigation")
